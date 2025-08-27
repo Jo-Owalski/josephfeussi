@@ -1,2 +1,0 @@
-# josephfeussi
-My Personal Blog
