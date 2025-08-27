@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BlogPost {
+  id          String   @id @default(uuid())
+  title       String
+  content     String
+  imageUrl    String   @default("https://picsum.photos/200/300")
+  authorId    String
+  authorName  String
+  authorImage String
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
