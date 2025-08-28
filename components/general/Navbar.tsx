@@ -1,11 +1,15 @@
+"use client"
 import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 import { RegisterLink, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
-const Navbar = async () => {
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
+const Navbar = () => {
+  // Reoving this one permits to use cache rather than fetching the nav again fron server
+  // const { getUser } = getKindeServerSession();
+  const {getUser} = useKindeBrowserClient()
+  const user = getUser();
 
   return (
     <nav className="py-5 flex items-center justify-between">
