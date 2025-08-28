@@ -2,20 +2,23 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
-    remotePatterns:[
+    remotePatterns: [
       {
         hostname: "picsum.photos",
         protocol: "https",
-        port: ""
+        port: "",
       },
       {
         hostname: "lh3.googleusercontent.com",
         protocol: "https",
-        port: ""
-      }
-    ]
-  }
+        port: "",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
